@@ -18,7 +18,7 @@
     }
 }*/
 
-//The code above has big(O) time complexity of n^2 (quadratic time complexity).
+//The code above has O(n^2) time complexity (quadratic time complexity).
 
 //---------------------------------------------------------------------------//
 
@@ -54,4 +54,4 @@ class Solution {
     }
 }
 
-// The code above utilzed Hashmap, and it has constant time complexity.
+// The code above utilzed Hashmap, and it has constant time complexity or called linear time complexity, O(n).
