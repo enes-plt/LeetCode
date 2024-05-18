@@ -37,6 +37,7 @@ class Solution {
 
 //----------------------------------------------------
 
+// Using dynamic array to solve the problem
 class Solution {
     public boolean isValid(String s) {
         // Use a dynamic array to simulate the stack behavior
