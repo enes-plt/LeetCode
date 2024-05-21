@@ -48,3 +48,26 @@ class Solution {
 // Time Complexity: O(n) 
 // Space Complexity: O(1)
 
+//----------------------------------------
+
+class Solution {
+  public boolean isPalindrome(int x) {
+      // A negative number cannot be a palindrome
+      // Also, if the last digit of the number is 0, the first digit must also be 0 (only 0 is valid)
+      if (x < 0 || (x % 10 == 0 && x != 0)) {
+          return false;
+      }
+
+      int reversedHalf = 0;
+      // Reverse half of the number
+      while (x > reversedHalf) {
+          int remainder = x % 10;
+          reversedHalf = reversedHalf * 10 + remainder;
+          x /= 10;
+      }
+
+      // Check if the original number is equal to the reversed half
+      // If the length is odd, disregard the middle digit by reversedHalf / 10
+      return x == reversedHalf || x == reversedHalf / 10;
+  }
+}

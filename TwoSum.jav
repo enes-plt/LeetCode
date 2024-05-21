@@ -1,4 +1,4 @@
-/*class Solution {
+class Solution {
     // Method to find the indices of two numbers in the array 
     // that add up to the target
     public int[] twoSum(int[] nums, int target) {
@@ -16,15 +16,12 @@
         // If no two numbers add up to the target, return an array containing the input nums
         return nums;
     }
-}*/
+}
 
 //The code above has O(n^2) time complexity (quadratic time complexity).
 
 //---------------------------------------------------------------------------//
 
-
-import java.util.HashMap;
-import java.util.Map;
 
 class Solution {
     // Method to find the indices of two numbers in the array 

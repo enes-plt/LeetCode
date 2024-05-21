@@ -22,3 +22,44 @@ class Solution {
         return count;
     }
 }
+
+
+//-----------------------------------------------------
+
+class Solution {
+    public int findNumbers(int[] nums) {
+        // Initialize a counter variable to count the number of integers with an even number of digits
+        int count = 0;
+        
+        // Iterate through each integer in the array
+        for (int num : nums) {
+            // Check if the number of digits in the current integer is even
+            if (countDigits(num) % 2 == 0) {
+                // If the number of digits is even, increment the counter
+                count++;
+            }
+        }
+        
+        // Return the count of integers with an even number of digits
+        return count;
+    }
+    
+    // Helper function to count the number of digits in an integer
+    private int countDigits(int num) {
+        // Initialize a counter variable to count the digits
+        int count = 0;
+        
+        // Loop until the number becomes 0
+        while (num != 0) {
+            // Increment the counter for each digit
+            count++;
+            // Remove the last digit by integer division
+            num /= 10;
+        }
+        
+        // Return the count of digits
+        return count;
+    }
+}
+
+
