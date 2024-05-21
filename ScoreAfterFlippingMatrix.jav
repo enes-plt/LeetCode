@@ -3,7 +3,9 @@ class Solution {
         // Get the number of rows and columns in the grid
         int numRows = grid.length;
         int numColumns = grid[0].length;
-        
+
+        // Step 1: Ensure the leftmost column has all 1s by flipping rows if needed  
+
         // Flip rows if necessary to ensure the first column is all 1s
         for (int row = 0; row < numRows; ++row) {
             if (grid[row][0] == 0) { // Check if the first column of the current row is 0
@@ -14,6 +16,9 @@ class Solution {
             }
         }
         
+        
+        // Step 2: Calculate the maximum score by possibly flipping columns
+
         int totalScore = 0;
         // Calculate the score using bitwise operations
         for (int col = 0; col < numColumns; ++col) {
