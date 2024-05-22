@@ -1,5 +1,27 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
+        // Initialize the index for the next distinct element
+        int startIndex = 1;
+        
+        // Iterate through the array starting from the second element
+        for (int i = 1; i < nums.length; i++) {
+            // Compare the current element with the previous distinct element
+            if (nums[i] != nums[startIndex - 1]) {
+                // If the current element is different from the previous distinct element,
+                // copy it to the position indicated by startIndex and increment startIndex
+                nums[startIndex++] = nums[i];
+            }
+        }
+        
+        // Return the length of the modified array with unique elements
+        return startIndex;
+    }
+}
+
+//-------------------------------------------------------------
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
         // Edge case: if the input array is empty, return 0 since there are no elements to process
         if (nums.length == 0) {
             return 0;
