@@ -18,8 +18,6 @@ class Solution {
     }
 }
 
-//The code above has O(n^2) time complexity (quadratic time complexity).
-
 //---------------------------------------------------------------------------//
 
 
@@ -50,8 +48,6 @@ class Solution {
         return nums;
     }
 }
-
-// The code above utilzed Hashmap, and it has constant time complexity or called linear time complexity, O(n).
 
 //------------------------------------------------
 
