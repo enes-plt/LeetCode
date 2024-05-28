@@ -52,3 +52,31 @@ class Solution {
 }
 
 // The code above utilzed Hashmap, and it has constant time complexity or called linear time complexity, O(n).
+
+//------------------------------------------------
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // Create a HashMap to store the complements and their indices
+        Map<Integer, Integer> complements = new HashMap<>();
+        
+        // Iterate through the array
+        for(int i = 0; i < nums.length; i++){
+            int current = nums[i];  // Current element in the array
+            // Calculate the complement of the current element
+            // current + x = target  =>  x = target - current
+            int x = target - current;
+            
+            // Check if the complement x is already in the map
+            if(complements.containsKey(x)){
+                // If found, return the indices of the complement and the current element
+                return new int[] { complements.get(x), i };
+            }
+            // If not found, add the current element and its index to the map
+            complements.put(current, i);
+        }
+        
+        // If no solution is found, return null
+        return null;
+    }
+}
