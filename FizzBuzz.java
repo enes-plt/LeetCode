@@ -27,3 +27,35 @@ class Solution {
         return newFizzBuzz;
     }
 }
+
+//--------------------------------------------------------------
+
+class Solution {
+    public List<String> fizzBuzz(int n) {
+        // Create an array to hold the results
+        String[] result = new String[n];
+
+        // Fill the array with numbers as strings
+        for (int i = 0; i < n; i++) {
+            result[i] = String.valueOf(i + 1);
+        }
+
+        // Replace multiples of 3 with "Fizz"
+        for (int i = 2; i < n; i += 3) {
+            result[i] = "Fizz";
+        }
+
+        // Replace multiples of 5 with "Buzz"
+        for (int i = 4; i < n; i += 5) {
+            result[i] = "Buzz";
+        }
+
+        // Replace multiples of both 3 and 5 with "FizzBuzz"
+        for (int i = 14; i < n; i += 15) {
+            result[i] = "FizzBuzz";
+        }
+
+        // Convert the array to a List and return it
+        return new ArrayList<>(List.of(result));
+    }
+}
