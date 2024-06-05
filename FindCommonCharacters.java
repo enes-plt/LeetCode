@@ -1,49 +1,50 @@
 class Solution {
     public List<String> commonChars(String[] words) {
-        // Get the character frequencies of the first word
+        // Initialize common character counts with the first word's frequencies
         int[] commonCharCounts = countCharFrequencies(words[0]);
         
-        // Find the intersection of character frequencies for all words
+        // Intersect the character frequencies with the rest of the words
         for (int i = 1; i < words.length; i++) {
             commonCharCounts = intersectCharFrequencies(commonCharCounts, countCharFrequencies(words[i]));
         }
         
-        // Prepare the result list of common characters
+        // Construct the result list based on the common character counts
         List<String> result = new ArrayList<>();
+        // Iterate over each character index (0 to 25) representing 'a' to 'z'
         for (int i = 0; i < 26; i++) {
+            // Check if the character frequency is greater than 0, meaning it's common among all strings
             if (commonCharCounts[i] != 0) {
-                // Convert the index i to the corresponding character (i.e., 0 -> 'a', 1 -> 'b', ..., 25 -> 'z')
-                char currentChar = (char) ('a' + i);
-                // Convert the character to a string
-                String charString = String.valueOf(currentChar);
-                // Add the character to the result list as many times as it appears in all words
+                char currentChar = (char) ('a' + i); // Convert the index back to its corresponding character
+                String charString = String.valueOf(currentChar); // Create a string representing the current character
+                // Add the character to the result list as many times as its frequency
                 while (commonCharCounts[i] > 0) {
                     result.add(charString);
-                    commonCharCounts[i]--;
+                    commonCharCounts[i]--; // Decrease the frequency count after adding the character
                 }
             }
         }
         return result;
     }
 
-    // Method to find the intersection of two character frequency arrays
-    private int[] intersectCharFrequencies(int[] freq1, int[] freq2) {
-        int[] intersectedFrequencies = new int[26];
-        // For each character (from 'a' to 'z'), take the minimum frequency from the two arrays
-        for (int i = 0; i < 26; i++) {
-            intersectedFrequencies[i] = Math.min(freq1[i], freq2[i]);
+    // Helper function to count character frequencies in a string
+    private int[] countCharFrequencies(String str) {
+        int[] charFrequencies = new int[26];  // Initialize an array to store frequencies of each character
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);  // Get the current character
+            charFrequencies[c - 'a']++;  // Increment the frequency of the current character
         }
-        return intersectedFrequencies;
+        return charFrequencies;  // Return the frequency array
     }
 
-    // Method to count the frequencies of each character in a string
-    private int[] countCharFrequencies(String str) {
-        int[] charFrequencies = new int[26];
-        // For each character in the string, increment its corresponding frequency count
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-            charFrequencies[c - 'a']++;
-        }
-        return charFrequencies;
+    // Helper function to intersect two frequency arrays representing character frequencies by taking the minimum value for each character.
+    private int[] intersectCharFrequencies(int[] freq1, int[] freq2) {
+        int[] intersectedFrequencies = new int[26]; // Initialize an array to store intersected frequencies
+        // Iterate over each character's frequency
+        for (int i = 0; i < 26; i++) {
+            intersectedFrequencies[i] = Math.min(freq1[i], freq2[i]); // Take the minimum frequency for each character from both arrays
+                                                                    // freq1 The first array of character frequencies.
+                                                                    // freq2 The second array of character frequencies.
+        } 
+        return intersectedFrequencies; // Return the intersected frequencies array
     }
 }
