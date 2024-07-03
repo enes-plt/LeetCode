@@ -1,7 +1,7 @@
 class Solution {
     public int numIdenticalPairs(int[] nums) {
         int ans = 0;
-        int[] count = new int[101]; // Create an array to count occurrences of each number
+        int[] count = new int[101]; // Create an array to count occurrences of each number within the constraints
 
         // Count the occurrences of each number in the array
         for (int i = 0; i < nums.length; i++) {
