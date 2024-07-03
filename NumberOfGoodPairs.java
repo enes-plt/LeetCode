@@ -1,5 +1,28 @@
 class Solution {
     public int numIdenticalPairs(int[] nums) {
+        int ans = 0;
+        int[] count = new int[101]; // Create an array to count occurrences of each number
+
+        // Count the occurrences of each number in the array
+        for (int i = 0; i < nums.length; i++) {
+            count[nums[i]]++;
+        }
+
+        // Calculate the number of good pairs for each unique number
+        for (int i = 0; i < count.length; i++) {
+            ans += (count[i] * (count[i] - 1)) / 2; // Apply the formula to count good pairs
+        }
+
+        return ans; // Return the total number of good pairs
+    }
+}
+
+
+
+//-----------------------------------------------------
+
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
         Map<Integer, Integer> countMap = new HashMap<>(); // Create a hash map to store the count of each number
         int goodPairs = 0; // Initialize the count of good pairs to 0
 
