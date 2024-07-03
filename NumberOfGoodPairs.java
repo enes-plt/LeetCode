@@ -5,7 +5,7 @@ class Solution {
 
         // Count the occurrences of each number in the array
         for (int i = 0; i < nums.length; i++) {
-            count[nums[i]]++; // tallies up the occurrences of
+            count[nums[i]]++; // adds up the occurrences of
                               // each number in the 'nums' array by using the number itself as an index in the 'count' array.
         }
 
