@@ -14,6 +14,10 @@ class Solution {
                                                     // Formula used to determine the number of unique pairs that can be formed
                                                     // from n identical items. It ensures we account for all possible
                                                     // combinations of indices (i,j) where i < j.
+                                                    // If you have n identical items, the number of ways you can pick 2 items out
+                                                    // of n to form a pair is given by the combination formulaf you have n identical items,
+                                                    // the number of ways you can pick 2 items out of n to form a pair is
+                                                    // given by the combination formula. Like (n * (n-1)) / 2
         }
 
         return ans; // Return the total number of good pairs
