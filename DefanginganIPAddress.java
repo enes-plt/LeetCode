@@ -6,7 +6,7 @@ class Solution {
   }
   
   
-  
+
   //------------------------------------------------------
   
   class Solution {
@@ -22,7 +22,8 @@ class Solution {
             // If the current character is a '.', append "[.]" to the StringBuilder
             if (c == '.') {
                 defangedAddress.append("[.]");
-            } else {
+            }
+            else {
                 // Otherwise, append the current character to the StringBuilder
                 defangedAddress.append(c);
             }
