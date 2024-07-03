@@ -10,7 +10,10 @@ class Solution {
 
         // Calculate the number of good pairs for each unique number
         for (int i = 0; i < count.length; i++) {
-            ans += (count[i] * (count[i] - 1)) / 2; // Apply the formula to count good pairs
+            ans += (count[i] * (count[i] - 1)) / 2; // Apply the formula to count good pairs.
+                                                    // Formula used to determine the number of unique pairs that can be formed
+                                                    // from n identical items. It ensures we account for all possible
+                                                    // combinations of indices (i,j) where i < j.
         }
 
         return ans; // Return the total number of good pairs
