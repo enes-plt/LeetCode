@@ -1,2 +1,2 @@
 # LeetCode 🛠
-LeetCode-Solutions
+LeetCode-Solutions that I solved.
