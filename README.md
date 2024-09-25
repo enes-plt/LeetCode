@@ -1,2 +1,2 @@
-# LeetCode 🛠
-LeetCode-Solutions
+# LeetCode 🛠 
+LeetCode-Solutions that I worked on it. 🚀
