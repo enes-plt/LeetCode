@@ -27,7 +27,7 @@ class Solution {
     public int[] twoSum(int[] nums, int target) {
         // Create a HashMap to store the complements of elements 
         // encountered so far along with their indices
-        Map<Integer, Integer> complements = new HashMap<>();
+        HashMap<Integer, Integer> complements = new HashMap<>();
         
         // Iterate through the array
         for (int i = 0; i < nums.length; i++){
@@ -54,7 +54,7 @@ class Solution {
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         // Create a HashMap to store the complements and their indices
-        Map<Integer, Integer> complements = new HashMap<>();
+        HashMap<Integer, Integer> complements = new HashMap<>();
         
         // Iterate through the array
         for(int i = 0; i < nums.length; i++){
