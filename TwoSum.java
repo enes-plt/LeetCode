@@ -60,13 +60,13 @@ class Solution {
         for(int i = 0; i < nums.length; i++){
             int current = nums[i];  // Current element in the array
             // Calculate the complement of the current element
-            // current + x = target  =>  x = target - current
-            int x = target - current;
+            // current + difference = target  =>  difference = target - current
+            int difference = target - current;
             
-            // Check if the complement x is already in the map
-            if(complements.containsKey(x)){
+            // Check if the complement difference is already in the map
+            if(complements.containsKey(difference)){
                 // If found, return the indices of the complement and the current element
-                return new int[] { complements.get(x), i };
+                return new int[] { complements.get(difference), i };
             }
             // If not found, add the current element and its index to the map
             complements.put(current, i);
