@@ -26,27 +26,27 @@ class Solution {
     // Function to check if the given string is a palindrome, ignoring non-alphanumeric characters
     public boolean isPalindrome(String s) {
         // Initialize two pointers, one starting at the beginning (left) and the other at the end (right) of the string
-        int l = 0;
-        int r = s.length() - 1;
+        int left = 0;
+        int right = s.length() - 1;
 
         // Loop until the two pointers meet in the middle
-        while(l < r) {
+        while(left < right) {
             // Move the left pointer forward if the current character is not alphanumeric
-            while(l < r && !alphaNum(s.charAt(l))) {
-                l++;
+            while(left < right && !alphaNum(s.charAt(left))) {
+                left++;
             }
             // Move the right pointer backward if the current character is not alphanumeric
-            while(r > l && !alphaNum(s.charAt(r))) {
-                r--;
+            while(right > left && !alphaNum(s.charAt(right))) {
+                right--;
             }
             // Compare the characters at the left and right pointers (convert to lowercase for case-insensitivity)
-            if(Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r))) {
+            if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
                 // If the characters do not match, return false (it's not a palindrome)
                 return false;
             }
             // Move both pointers closer towards the middle
-            l++;
-            r--;
+            left++;
+            right--;
         }
         // If all character comparisons matched, return true (the string is a palindrome)
         return true;
