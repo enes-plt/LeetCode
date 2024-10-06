@@ -1,4 +1,4 @@
-public class Solution {
+class Solution {
     public boolean isPalindrome(String s) {
         // Create a StringBuilder to store only alphanumeric characters in lowercase
         StringBuilder newStr = new StringBuilder();
