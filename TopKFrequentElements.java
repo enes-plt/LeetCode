@@ -20,8 +20,10 @@ class Solution {
         List<int[]> arr = new ArrayList<>();
         // Convert the entry set of the HashMap into an array for iteration
         
-        // HashMap.Entry<Integer, Integer> represents each key-value pair in the map
+        // Map.Entry<Integer, Integer> represents each key-value pair in the map
         Map.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new Map.Entry[0]);
+        //Map.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new Map.Entry[count.size()]);
+
         //entrySet() method returns a 'Set' view of all the key-value pairs (or entries) contained in the map.
         //getKey() returns the key associated with the entry.
         //getValue() returns the value associated with the entry.
@@ -71,21 +73,28 @@ class Solution {
         // Step 2: Create a min-heap (priority queue) to keep track of the top k elements
         // Each element in the heap is an array of size 2: {frequency, number}
         // Use a custom comparator to compare based on frequency (min-heap based on frequency)
-        PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> a[0] - b[0]); //queue is sorted based on 
+                                                                                //the first element of the array (a[0] - b[0]).
         
-        // Convert the entry set of the map to an array to iterate using a regular for loop
+        // Convert the entry set of the map to an array to iterate using a for loop
         Map.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new Map.Entry[0]);
         
-        // Step 3: Iterate through each entry in the frequency map using a regular for loop
+        // Step 3: Iterate through each entry in the frequency map using a for loop
         for (int i = 0; i < entries.length; i++) {
+            //retrieving a specific entry (key-value pair) from the entries array and storing it in a variable entry of type Map.Entry<Integer, Integer>.
             Map.Entry<Integer, Integer> entry = entries[i];
+            
             // Add the frequency and number as a pair to the heap
+            //.offer() method is used to insert an element into a queue, specifically into a priority queue 
+            //or any implementation of the Queue interface.
             heap.offer(new int[]{entry.getValue(), entry.getKey()});
             
             // If the heap size exceeds k, remove the element with the smallest frequency
             // This ensures the heap always contains the k most frequent elements
             if (heap.size() > k) {
-                heap.poll();
+                heap.poll(); //poll() method is used to retrieve and remove the element with the highest priority
+                             // (i.e., the head of the queue) from a priority queue or any other implementation
+                             // of the Queue interface.
             }
         }
         // At this point, the heap contains the k most frequent elements
@@ -94,7 +103,7 @@ class Solution {
         int[] result = new int[k];
         
         // Extract the elements from the heap and store them in the result array
-        // Iterate using a regular for loop
+        // Iterate using a for loop
         for (int i = 0; i < k; i++) {
             // Poll the heap to get the element with the highest frequency and store the number in the result array
             result[i] = heap.poll()[1];
@@ -123,15 +132,15 @@ class Solution {
             freq[i] = new ArrayList<>();
         }
 
-        // Step 3: Count the frequency of each number in the input array using a regular loop
+        // Step 3: Count the frequency of each number in the input array using a loop
         for (int i = 0; i < nums.length; i++) {
-            int n = nums[i];
-            count.put(n, count.getOrDefault(n, 0) + 1);
+            int num = nums[i];
+            count.put(num, count.getOrDefault(n, 0) + 1);
         }
         // At this point, `count` contains the frequency of each number in `nums`
 
         // Step 4: Populate the frequency array with the numbers based on their frequency
-        // Iterate through the entries in the map using a regular loop
+        // Iterate through the entries in the map using a loop
         Map.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new Map.Entry[0]);
         for (int i = 0; i < entries.length; i++) {
             int frequency = entries[i].getValue();
@@ -141,23 +150,23 @@ class Solution {
         }
 
         // Step 5: Create a result array to store the top k frequent numbers
-        int[] res = new int[k];
+        int[] result = new int[k];
         int index = 0;
 
         // Step 6: Traverse the frequency array from highest to lowest frequency
         // Fill the result array with the top k frequent numbers
         for (int i = freq.length - 1; i > 0 && index < k; i--) {
-            // Use a regular loop to iterate over the list at the current frequency
+            // Use another loop to iterate over the list at the current frequency
             for (int j = 0; j < freq[i].size(); j++) {
-                res[index++] = freq[i].get(j);
+                result[index++] = freq[i].get(j);
                 // If we have found k elements, return the result
                 if (index == k) {
-                    return res;
+                    return result;
                 }
             }
         }
 
         // Step 7: Return the result array containing the top k frequent numbers
-        return res;
+        return result;
     }
 }
