@@ -3,7 +3,7 @@ class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         // Step 1: Create a HashMap to count the frequency of each number in the input array
         // Key: number in the array, Value: frequency of that number
-        HashMap<Integer, Integer> count = new HashMap<>();
+        Map<Integer, Integer> count = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int num = nums[i];
             // If the number already exists in the map, increment its count, otherwise set it to 1
@@ -21,7 +21,7 @@ class Solution {
         // Convert the entry set of the HashMap into an array for iteration
         
         // HashMap.Entry<Integer, Integer> represents each key-value pair in the map
-        HashMap.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new HashMap.Entry[0]);
+        Map.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new Map.Entry[0]);
         //entrySet() method returns a 'Set' view of all the key-value pairs (or entries) contained in the map.
         //getKey() returns the key associated with the entry.
         //getValue() returns the value associated with the entry.
@@ -60,7 +60,7 @@ class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         // Step 1: Create a HashMap to count the frequency of each number in the input array
         // Key: number in the array, Value: frequency of that number
-        HashMap<Integer, Integer> count = new HashMap<>();
+        Map<Integer, Integer> count = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int num = nums[i];
             // If the number already exists in the map, increment its count, otherwise set it to 1
@@ -74,11 +74,11 @@ class Solution {
         PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         
         // Convert the entry set of the map to an array to iterate using a regular for loop
-        HashMap.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new HashMap.Entry[0]);
+        Map.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new Map.Entry[0]);
         
         // Step 3: Iterate through each entry in the frequency map using a regular for loop
         for (int i = 0; i < entries.length; i++) {
-            HashMap.Entry<Integer, Integer> entry = entries[i];
+            Map.Entry<Integer, Integer> entry = entries[i];
             // Add the frequency and number as a pair to the heap
             heap.offer(new int[]{entry.getValue(), entry.getKey()});
             
@@ -112,7 +112,7 @@ class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         // Step 1: Create a HashMap to count the frequency of each number in the input array
         // Key: number in the array, Value: frequency of that number
-        HashMap<Integer, Integer> count = new HashMap<>();
+        Map<Integer, Integer> count = new HashMap<>();
         
         // Step 2: Create an array of lists to store numbers based on their frequencies
         // The index of the array represents the frequency
@@ -132,7 +132,7 @@ class Solution {
 
         // Step 4: Populate the frequency array with the numbers based on their frequency
         // Iterate through the entries in the map using a regular loop
-        HashMap.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new HashMap.Entry[0]);
+        Map.Entry<Integer, Integer>[] entries = count.entrySet().toArray(new Map.Entry[0]);
         for (int i = 0; i < entries.length; i++) {
             int frequency = entries[i].getValue();
             int number = entries[i].getKey();
