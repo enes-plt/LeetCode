@@ -69,15 +69,15 @@ class Solution {
         for (int i = 1; i <= n; i++) {
             // Check if the number is divisible by both 3 and 5
             if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FizzBuzz");  // Print "FizzBuzz" if divisible by both 3 and 5
+                System.out.println("FizzBuzz");
             } 
             // Check if the number is divisible by only 3
             else if (i % 3 == 0) {
-                System.out.println("Fizz");  // Print "Fizz" if divisible by 3
+                System.out.println("Fizz");
             } 
             // Check if the number is divisible by only 5
             else if (i % 5 == 0) {
-                System.out.println("Buzz");  // Print "Buzz" if divisible by 5
+                System.out.println("Buzz");
             } 
             // If not divisible by 3 or 5, print the number itself
             else {
