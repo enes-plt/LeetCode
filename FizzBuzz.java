@@ -59,3 +59,30 @@ class Solution {
         return new ArrayList<>(List.of(result));
     }
 }
+
+//-----------------------------------------------------
+
+
+class Solution {
+    public static void fizzBuzz(int n) {
+        // Loop through numbers from 1 to n
+        for (int i = 1; i <= n; i++) {
+            // Check if the number is divisible by both 3 and 5
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("FizzBuzz");  // Print "FizzBuzz" if divisible by both 3 and 5
+            } 
+            // Check if the number is divisible by only 3
+            else if (i % 3 == 0) {
+                System.out.println("Fizz");  // Print "Fizz" if divisible by 3
+            } 
+            // Check if the number is divisible by only 5
+            else if (i % 5 == 0) {
+                System.out.println("Buzz");  // Print "Buzz" if divisible by 5
+            } 
+            // If not divisible by 3 or 5, print the number itself
+            else {
+                System.out.println(i);
+            }
+        }
+    }
+}
