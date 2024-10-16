@@ -19,6 +19,45 @@ class Solution {
     }
 }
 
+
+//-----------------------------------------
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        // Initialize boundary as the last index of the array
+        int boundary = nums.length - 1;
+        // Start iterating from the first element of the array
+        int k = 0;
+        
+        // Loop until the current index 'k' is less than or equal to the boundary
+        while (k <= boundary) {
+            // If the current element is equal to 'val'
+            if (nums[k] == val) {
+                // Swap the element at 'k' with the element at the boundary
+                swap(nums, k, boundary);
+                // Decrease the boundary to exclude the swapped element
+                boundary--;
+            } else {
+                // Move to the next element if it's not equal to 'val'
+                k++;
+            }
+        }
+        // Return the index 'k' which represents the new length of the array
+        // after all instances of 'val' are removed
+        return k;
+    }
+
+    // Method to swap two elements in the array
+    public void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+    
+}
+
+
+
 //------------------------------------------
 
 class Solution {
