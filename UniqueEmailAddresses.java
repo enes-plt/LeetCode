@@ -35,8 +35,9 @@ class Solution {
 //-----------------------------------------------------------
 
 class Solution {
-    // 1. Remove everything after '+' in the local part of the email.
-    // 2. Remove all dots ('.') in the local part.
+    // Helper method to format email address according to the specified rules
+    // Remove everything after '+' in the local part of the email.
+    // Remove all dots ('.') in the local part.
     private String getFormattedEmail(String email) {
         // Split the email into local and domain parts
         String[] arr = email.split("@");
